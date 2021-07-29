@@ -6,7 +6,7 @@ use models\PublicacionModel as PublicacionModel;
 
 require_once("../models/PublicacionModel.php");
 
-class NuevaPublicacion
+class BuscarPublicacion
 {
    
     public $tipo;
@@ -18,27 +18,31 @@ class NuevaPublicacion
       
     }
 
-    public function crear()
+    public function buscar()
     {
         session_start();
         if ($this->tipo == "") {
-            $_SESSION['error'] = "Completa los campos";
+            $_SESSION['error'] = "Complete los datos";
             header("Location: ../views/buscar_p.php");
             return;
         }
-
-        $model = new PublicacionModel();
-        $user = $_SESSION['usuario'];
-        $data = ['tipo' => $this->tipo, "email" => $user['email']];
-        $count = $model->searchPub($data);
-        if ($count == 1) {
-            $_SESSION['respuesta'] = "Consulta creada con éxito";
+        $modelo = new PublicacionModel();
+        $array = $modelo->searchPub($this->tipo);
+        if (count($array) == 0) {
+            $_SESSION['error_buscar'] = "No hay coincidencia.";
         } else {
-            $_SESSION['error'] = "Hubo un error en la base de datos";
+            $_SESSION['pub'] = "Consultas encontradas";
+            $_SESSION['pub_buscar'] = $array; 
         }
-        print_r($data);
+
+
+        //echo("<pre>");
+        //print_r($array);
+        //echo("</pre>");
+
+        header("Location: ../views/buscar_p.php");
     }
 }
 
-$obj = new NuevaPublicacion();
-$obj->crear();
+$obj = new BuscarPublicacion();
+$obj->buscar();

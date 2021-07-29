@@ -46,8 +46,6 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
                         <li><a href="../portal-medico/views/mis_consultas.php">Mis Consultas</a></li>
                         <li><a href="../portal-medico/views/salir.php">Salir</a></li>
                     </ul>
-
-
                 </div>
 
             </nav>

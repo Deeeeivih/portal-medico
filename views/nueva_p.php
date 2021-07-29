@@ -48,9 +48,11 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
                         <a style="margin-left: 10px;" href="../index.php" class="white-text"><i class="material-icons left">arrow_back</i></a>
 
                         <a href="../index.php" class="brand-logo center" style="font-family: 'Anton', sans-serif;">Portal</a>
-
+                        
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        
                             <li class="active"><a href="nueva_p.php">Crear</a></li>
+                            <li><a href="buscar_p.php" class="white-text"></i>Buscar</a></li>
                             <li><a href="mis_consultas.php">Mis Consultas</a></li>
                             <li><a href="salir.php">Salir</a></li>
                         </ul>
@@ -87,19 +89,19 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
                 <?php foreach ($publicaciones as $p) { ?>
                     <div class="row">
                         <div class="col l6 offset-l3 ">
-                           
-                                <div class="card-panel left-align white animated" style="background: url(../img/brick-wall.png);">
 
-                                    <h6 class="left" style="font-family: 'Zilla Slab Highlight', cursive;"><b><?= $p['titulo'] ?></b><u></u></h6>
-                                    <h6></h6>
-                                    <br>
-                                    <br>
-                                    <button style="background: url('../img/black-felt.png')" class="btn-small modal-trigger teal lighten-2" href="#modal<?= $p['id'] ?>"><i class="material-icons">info</i></button>
+                            <div class="card-panel left-align white animated" style="background: url(../img/brick-wall.png);">
 
-                                    <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2"><i class="material-icons left ">comment</i>Respuestas</a>
+                                <h6 class="left" style="font-family: 'Zilla Slab Highlight', cursive;"><b><?= $p['titulo'] ?></b><u></u></h6>
+                                <h6></h6>
+                                <br>
+                                <br>
+                                <button style="background: url('../img/black-felt.png')" class="btn-small modal-trigger teal lighten-2" href="#modal<?= $p['id'] ?>"><i class="material-icons">info</i></button>
+
+                                <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2"><i class="material-icons left ">comment</i>Respuestas</a>
 
 
-                                </div>
+                            </div>
 
 
 

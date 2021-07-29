@@ -35,10 +35,10 @@ class PublicacionModel
         return $publicaciones;
     }
 
-    public function searchPub($data)
+    public function searchPub($tipo)
     {
         $stm = Conexion::conector()->prepare("SELECT * FROM publicacion WHERE tipo=:A");
-        $stm->bindParam(":A", $data['tipo']);
+        $stm->bindParam(":A", $tipo);
         $stm->execute();
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }

@@ -60,8 +60,9 @@
 
             <main>
                 <div class="row">
-                    <div class="col l10 offset-l1">
-                        <div class="card-panel white" style="background: url(../img/brick-wall.png);">
+                    <div class="col l8 offset-l2">
+                        <div class="card-panel white center" style="background: url(../img/brick-wall.png);">
+                            <h4><b>BUSCA CONSULTAS</b></h4>
                             <p class="red-text left">
                                 <?php
                                 if (isset($_SESSION['error'])) {
@@ -71,21 +72,30 @@
                                 ?>
                             </p>
 
-                            <p class="green-text left">
+                            <p class="red-text left">
                                 <?php
-                                if (isset($_SESSION['respuesta'])) {
-                                    echo $_SESSION['respuesta'];
-                                    unset($_SESSION['respuesta']);
+                                if (isset($_SESSION['error_buscar'])) {
+                                    echo $_SESSION['error_buscar'];
+                                    unset($_SESSION['error_buscar']);
                                 }
                                 ?>
                             </p>
+                            <p class="green-text left">
+                                <?php
+                                if (isset($_SESSION['pub'])) {
+                                    echo $_SESSION['pub'];
+                                    unset($_SESSION['pub']);
+                                }
+                                ?>
+                            </p>
+                            <br>
                             <br>
                             <form action="../controllers/BuscarPub.php" method="POST">
                                 <div class="input-field">
                                     <input id="tipo" type="text" name="tipo">
                                     <label for="tipo">Ingrese un tipo</label>
                                 </div>
-                                <button class="btn teal lighten-2 ancho-100" style="background: url(../img/black-felt.png);">Publicar</button>
+                                <button class="btn teal lighten-2 ancho-100" style="background: url(../img/black-felt.png);">Buscar</button>
                             </form>
                         </div>
 
@@ -93,23 +103,40 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col l10 offset-l1">
+                    <div class="col l8 offset-l2">
                         <div class="card-panel white" style="background: url(../img/brick-wall.png);">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Publicacion</th>
+                                        <th>Publicaciones</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Titulo</th>
+                                        <th>Tipo</th>
+                                        <th>Descripcion</th>
 
                                     </tr>
                                 </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td></td>
 
-                                    </tr>
+                                <tbody>
+                                    <?php
+                                    if (isset($_SESSION['pub_buscar'])) { ?>
+                                        <?php foreach ($_SESSION['pub_buscar'] as $p) { ?>
+                                            <tr>
+                                                <td><?= $p['titulo'] ?></td>
+                                                <td><?= $p['tipo'] ?></td>
+                                                <td><?= $p['descripcion'] ?></td>
+
+                                            </tr>
+                                        <?php } ?>
+                                    <?php
+                                        unset($_SESSION['pub_buscar']);
+                                    } ?>
+
 
                                 </tbody>
+
                             </table>
                         </div>
 
