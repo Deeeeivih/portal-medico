@@ -1,5 +1,5 @@
 create database portal;
-use portaldb;
+use portal;
 
 create table usuario(
     rut varchar(50),
