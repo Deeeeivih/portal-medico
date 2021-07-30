@@ -128,7 +128,7 @@
                                                 <a href="#">Consultado por: <?= $p['rutFK'] ?></a>
                                             </div>
                                             <div class="col l6 m5 s5">
-                                                <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2 modal-trigger right"><i class="material-icons left">create</i>Respuestas</a>
+                                                <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2 modal-trigger right"><i class="material-icons left">comment</i>Respuestas</a>
 
                                             </div>
                                             

@@ -107,7 +107,7 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
                                             <a href="#">Consultado por: <?= $p['rutFK'] ?></a>
                                         </div>
                                         <div class="col l5 m5 s5">
-                                            <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2 modal-trigger right"><i class="material-icons left">create</i>Responder</a>
+                                            <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2 modal-trigger right"><i class="material-icons left">comment</i>Respuestas</a>
 
                                         </div>
                                         <div class="col l1 m1 s1" style="margin-left: 0px;">

@@ -68,7 +68,7 @@
                             <label for="clave">Ingrese clave</label>
                         </div>
 
-                        <a href="#" onclick="mostrarContrasena()"><i class="material-icons">visibility</i></a>
+                        <a href="" onclick="mostrarContrasena()"><i class="material-icons">visibility</i></a>
                         <br>
 
                         <button class="btn teal lighten-2 right" style="background: url('img/black-felt.png')">Iniciar</button>

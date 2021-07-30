@@ -67,7 +67,7 @@ $respuestas = $respuestaModel->RespuestaXPublicacion($idFK);
 
             <main>
                 <div class="row">
-                    <div class="col l10 offset-l1">
+                    <div class="col l10 offset-l1 m12 s12">
                         <?php if ($respuestas != null) { ?>
 
 
@@ -97,7 +97,7 @@ $respuestas = $respuestaModel->RespuestaXPublicacion($idFK);
                 </div>
 
                 <div class="row">
-                    <div class="col l10 offset-l1">
+                    <div class="col l10 offset-l1 m12 s12">
                         <?php foreach ($respuestas as $r) { ?>
 
                             <div class="card">
