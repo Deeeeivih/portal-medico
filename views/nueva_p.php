@@ -48,9 +48,9 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
                         <a style="margin-left: 10px;" href="../index.php" class="white-text"><i class="material-icons left">arrow_back</i></a>
 
                         <a href="../index.php" class="brand-logo center" style="font-family: 'Anton', sans-serif;">Portal</a>
-                        
+
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        
+
                             <li class="active"><a href="nueva_p.php">Crear</a></li>
                             <li><a href="buscar_p.php" class="white-text"></i>Buscar</a></li>
                             <li><a href="mis_consultas.php">Mis Consultas</a></li>
@@ -72,7 +72,7 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
 
 
                 <div class="row">
-                    <div class="col l8 offset-l2">
+                    <div class="col l8 offset-l2 m12 s12">
                         <div class="card-panel center-align white display" style="background: url(../img/brick-wall.png);">
                             <h3 style="font-family: 'Anton', sans-serif;">Tienes alguna consulta medica?</h3>
                             <br><br>
@@ -88,25 +88,37 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
 
                 <?php foreach ($publicaciones as $p) { ?>
                     <div class="row">
-                        <div class="col l6 offset-l3 ">
+                        <div class="col l6 offset-l3 m12 s12">
+                            <div class="card horizontal blue lighten-4" style="background: url(../img/brick-wall.png);">
+                                <div class="card-image">
+                                    <img src="../img/logo.jpg" class="responsive-img">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <div class="col l12">
+                                            <h8><a><u>Consulta:</u></a></h8>
+                                            <h5 style="text-transform: uppercase;"><b><?= $p['titulo'] ?></b> </h5>
+                                        </div>
 
-                            <div class="card-panel left-align white animated" style="background: url(../img/brick-wall.png);">
 
-                                <h6 class="left" style="font-family: 'Zilla Slab Highlight', cursive;"><b><?= $p['titulo'] ?></b><u></u></h6>
-                                <h6></h6>
-                                <br>
-                                <br>
-                                <button style="background: url('../img/black-felt.png')" class="btn-small modal-trigger teal lighten-2" href="#modal<?= $p['id'] ?>"><i class="material-icons">info</i></button>
+                                    </div>
+                                    <div class="card-action">
+                                        <div class="col l6 m6 s6">
+                                            <a href="#">Consultado por: <?= $p['rutFK'] ?></a>
+                                        </div>
+                                        <div class="col l5 m5 s5">
+                                            <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2 modal-trigger right"><i class="material-icons left">create</i>Responder</a>
 
-                                <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2"><i class="material-icons left ">comment</i>Respuestas</a>
+                                        </div>
+                                        <div class="col l1 m1 s1" style="margin-left: 0px;">
+                                            <button style="background: url('../img/black-felt.png')" class="btn-small modal-trigger teal lighten-2 right" href="#modal<?= $p['id'] ?>"><i class="material-icons">info</i></button>
+                                        </div>
+
+                                    </div>
+                                </div>
 
 
                             </div>
-
-
-
-
-                            <br>
 
 
 

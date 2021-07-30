@@ -82,7 +82,7 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
 
             <main>
             <div class="row">
-                    <div class="col l8 offset-l2">
+                    <div class="col l8 offset-l2 m12 s12">
                         <?php if ($publicaciones != null) { ?>
 
 
@@ -116,7 +116,7 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
 
                 <?php foreach ($publicaciones as $p) { ?>
                     <div class="row">
-                        <div class="col l6 offset-l3 ">
+                        <div class="col l6 offset-l3 m12 s12">
 
 
 
@@ -134,14 +134,14 @@ $publicaciones = array_reverse($publicacionModel->publicacionesAll());
 
                                     </div>
                                     <div class="card-action">
-                                        <div class="col l6">
+                                        <div class="col l6 m6 s6">
                                             <a href="#">Consultado por: <?= $p['rutFK'] ?></a>
                                         </div>
-                                        <div class="col l5">
+                                        <div class="col l5 m5 s5">
                                             <a style="background: url('../img/black-felt.png')" href="#modal<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2 modal-trigger right"><i class="material-icons left">create</i>Responder</a>
 
                                         </div>
-                                        <div class="col l1 " style="margin-left: 0px;">
+                                        <div class="col l1 m1 s1" style="margin-left: 0px;">
                                             <button style="background: url('../img/black-felt.png')" class="btn-small modal-trigger teal lighten-2 right" href="#modalinfo<?= $p['id'] ?>"><i class="material-icons">info</i></button>
                                         </div>
 

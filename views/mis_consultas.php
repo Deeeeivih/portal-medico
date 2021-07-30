@@ -55,6 +55,7 @@ if (isset($_SESSION['usuario'])) {
                         <a href="../index.php" class="brand-logo center" style="font-family: 'Anton', sans-serif;">Portal</a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li class="active"><a href="nueva_p.php">Crear</a></li>
+                            <li><a href="buscar_p.php" class="white-text"></i>Buscar</a></li>
                             <li><a href="mis_consultas.php">Mis Consultas</a></li>
                             <li><a href="salir.php">Salir</a></li>
                         </ul>
@@ -73,12 +74,12 @@ if (isset($_SESSION['usuario'])) {
             <main>
                 <br>
                 <div class="row">
-                    <div class="col l8 offset-l2">
+                    <div class="col l8 offset-l2 m12 s12">
                         <?php if ($publicacion != null) { ?>
 
 
                             <div class="card-panel center" style="background: url(../img/marco.jpg);">
-                                <h3><b style="text-transform: uppercase;">BIENVENIDO <?= $_SESSION['usuario']['nombre']?></b></h3>
+                                <h3><b style="text-transform: uppercase;">BIENVENIDO <?= $_SESSION['usuario']['nombre'] ?></b></h3>
                                 <h6><b>Puedes ver tus consultas y revisar si fueron respondidas.</b></h6>
                                 <li class="material-icons tooltipped right" style="color: teal;" data-position="bottom" data-tooltip="REVISA TUS CONSULTAS Y SUS RESPUESTAS.">info</li>
                                 <h5><b></b></h5>
@@ -89,7 +90,7 @@ if (isset($_SESSION['usuario'])) {
 
                         <?php } else { ?>
                             <div class="card-panel center" style="background: url(../img/marco.jpg);">
-                                <h3><b style="text-transform: uppercase;">BIENVENIDO <?= $_SESSION['usuario']['nombre']?></b></h3>
+                                <h3><b style="text-transform: uppercase;">BIENVENIDO <?= $_SESSION['usuario']['nombre'] ?></b></h3>
                                 <h6><b>Realiza tu primera consulta.</b></h6>
                                 <li class="material-icons tooltipped right" style="color: teal;" data-position="bottom" data-tooltip="HAZ TU PRIMERA CONSULTA.">info</li>
                                 <h5><b></b></h5>
@@ -108,20 +109,37 @@ if (isset($_SESSION['usuario'])) {
 
                 <?php foreach ($publicacion as $p) { ?>
                     <div class="row">
-                        <div class="col l8 offset-l2 ">
-                            <div class="card-panel left-align white animated" style="background: url(../img/brick-wall.png);">
+                        <div class="col l6 offset-l3 m12 s12">
+                            <div class="card horizontal blue lighten-4" style="background: url(../img/brick-wall.png);">
+                                <div class="card-image">
+                                    <img src="../img/logo.jpg" class="responsive-img">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <div class="col l12">
+                                            <h8><a><u>Consulta:</u></a></h8>
+                                            <h5 style="text-transform: uppercase;"><b><?= $p['titulo'] ?></b> </h5>
+                                        </div>
 
-                                <h6 class="left" style="font-family: 'Zilla Slab Highlight', cursive;"><b><?= $p['titulo'] ?></b><u></u></h6>
-                                <h6></h6>
-                                <br>
-                                <br>
-                                <button style="background: url('../img/black-felt.png')" class="btn-small modal-trigger teal lighten-2" href="#modal<?= $p['id'] ?>"><i class="material-icons">info</i></button>
 
-                                <a href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2" style="background: url('../img/black-felt.png')"><i class="material-icons left " style="color:darkslategrey;">comment</i>Respuestas</a>
+                                    </div>
+                                    <div class="card-action">
+                                        <div class="col l6 m6 s6">
+                                            <a href="#">Consultado por: <?= $p['rutFK'] ?></a>
+                                        </div>
+                                        <div class="col l5 m5 s5">
+                                            <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2 modal-trigger right"><i class="material-icons left">create</i>Responder</a>
+
+                                        </div>
+                                        <div class="col l1 m1 s1" style="margin-left: 0px;">
+                                            <button style="background: url('../img/black-felt.png')" class="btn-small modal-trigger teal lighten-2 right" href="#modal<?= $p['id'] ?>"><i class="material-icons">info</i></button>
+                                        </div>
+
+                                    </div>
+                                </div>
 
 
                             </div>
-
 
 
 
@@ -131,11 +149,6 @@ if (isset($_SESSION['usuario'])) {
                             <div class="modal-content" style="font-family: 'Wendy One', sans-serif; background: url('../img/brick-wall.png')">
                                 <h3 class="left">Informacion:</h3>
                                 <br><br><br>
-                                <div class="row">
-                                    <div class="col l6">
-                                        <h6 class="left" style="font-family: 'Oswald', sans-serif;"><?= $p['titulo'] ?></h6>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col l6">
                                         <h6 class="left" style="font-family: 'Oswald', sans-serif;"><?= $p['tipo'] ?></h6>

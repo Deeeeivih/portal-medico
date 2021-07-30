@@ -42,7 +42,10 @@
 
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                            <li><a href="../views/salir_u.php">Salir</a></li>
+                            <li class="active"><a href="nueva_p.php">Crear</a></li>
+                            <li><a href="buscar_p.php" class="white-text"></i>Buscar</a></li>
+                            <li><a href="mis_consultas.php">Mis Consultas</a></li>
+                            <li><a href="salir.php">Salir</a></li>
                         </ul>
 
 
@@ -60,7 +63,7 @@
 
             <main>
                 <div class="row">
-                    <div class="col l8 offset-l2">
+                    <div class="col l8 offset-l2 m12 s12">
                         <div class="card-panel white center" style="background: url(../img/brick-wall.png);">
                             <h4><b>BUSCA CONSULTAS</b></h4>
                             <p class="red-text left">
@@ -103,45 +106,65 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col l8 offset-l2">
-                        <div class="card-panel white" style="background: url(../img/brick-wall.png);">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Publicaciones</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Titulo</th>
-                                        <th>Tipo</th>
-                                        <th>Descripcion</th>
-
-                                    </tr>
-                                </thead>
-
-
-                                <tbody>
-                                    <?php
-                                    if (isset($_SESSION['pub_buscar'])) { ?>
-                                        <?php foreach ($_SESSION['pub_buscar'] as $p) { ?>
-                                            <tr>
-                                                <td><?= $p['titulo'] ?></td>
-                                                <td><?= $p['tipo'] ?></td>
-                                                <td><?= $p['descripcion'] ?></td>
-
-                                            </tr>
-                                        <?php } ?>
-                                    <?php
-                                        unset($_SESSION['pub_buscar']);
-                                    } ?>
+                    <div class="col l8 offset-l2 m12 s12">
+                        <?php
+                        if (isset($_SESSION['pub_buscar'])) { ?>
+                            <?php foreach ($_SESSION['pub_buscar'] as $p) { ?>
+                                <div class="card horizontal blue lighten-4" style="background: url(../img/brick-wall.png);">
+                                    <div class="card-image">
+                                        <img src="../img/logo.jpg" class="responsive-img">
+                                    </div>
+                                    <div class="card-stacked">
+                                        <div class="card-content">
+                                            <div class="col l12">
+                                                <h8><a><u>Consulta:</u></a></h8>
+                                                <h5 style="text-transform: uppercase;"><b><?= $p['titulo'] ?></b> </h5>
+                                            </div>
 
 
-                                </tbody>
+                                        </div>
+                                        <div class="card-action">
+                                            <div class="col l6 m6 s6">
+                                                <a href="#">Consultado por: <?= $p['rutFK'] ?></a>
+                                            </div>
+                                            <div class="col l6 m5 s5">
+                                                <a style="background: url('../img/black-felt.png')" href="../views/respuesta_p.php?idFK=<?= $p['id'] ?>" class="waves-effect waves-light btn-small teal lighten-2 modal-trigger right"><i class="material-icons left">create</i>Respuestas</a>
 
-                            </table>
+                                            </div>
+                                            
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            <?php } ?>
+                        <?php
+                            unset($_SESSION['pub_buscar']);
+                        } ?>
+                    </div>
+
+
+
+                </div>
+                <div id="modal<?= $p['id'] ?>" class="modal">
+                    <div class="modal-content" style="font-family: 'Wendy One', sans-serif; background: url('../img/brick-wall.png')">
+                        <h3 class="left">Informacion:</h3>
+                        <br><br><br>
+                        <div class="row">
+                            <div class="col l6">
+                                <h6 class="left" style="font-family: 'Oswald', sans-serif;"><?= $p['tipo'] ?></h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col l6">
+                                <h6 class="left" style="font-family: 'Oswald', sans-serif;"><?= $p['descripcion'] ?></h6>
+                            </div>
+
                         </div>
 
-
                     </div>
+
                 </div>
 
 
